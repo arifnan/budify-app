@@ -7,6 +7,11 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\TransactionController;
+use App\Http\Controllers\Api\SettingsController;
+use App\Http\Controllers\API\QuoteController;
+use App\Http\Controllers\API\CategoryController; 
+use App\Http\Controllers\API\ChartController;
+use App\Http\Controllers\API\DeviceController;
 
 // ---> INI BAGIAN INVESTIGASI <---
 // Mencatat semua request yang masuk ke file api.php
@@ -31,4 +36,13 @@ Route::middleware('auth:sanctum')->group(function () {
     
     Route::post('/profile/update-name', [ProfileController::class, 'updateName']);
     Route::post('/profile/update-photo', [ProfileController::class, 'updatePhoto']);
+  
+    Route::post('/settings/update-cycle', [SettingsController::class, 'updateBudgetCycle']);
+
+    Route::get('/quotes/random', [QuoteController::class, 'getRandomQuote']);
+    Route::get('/categories', [CategoryController::class, 'index']);
+
+     Route::get('/chart-data', [ChartController::class, 'getWeeklyExpenses']);
+
+      Route::post('/devices/register', [DeviceController::class, 'register']);
 });

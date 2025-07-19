@@ -21,8 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile_photo_path', // Tambahkan ini
-        'streak_count',       // Tambahkan ini
+        'fcm_token',
+        'profile_photo_path', // <-- Pastikan ini ada
+        'budget_cycle',
+        'streak_count',
+        'last_streak_check',
     ];
 
     /**
@@ -55,8 +58,10 @@ class User extends Authenticatable
     public function getProfilePhotoUrlAttribute()
     {
         if ($this->profile_photo_path) {
-            return Storage::url($this->profile_photo_path);
+            return Storage::disk('public')->url($this->profile_photo_path);
         }
-        return null;
+
+        // Anda bisa menyediakan URL default jika tidak ada foto
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=7F9CF5&background=EBF4FF';
     }
 }

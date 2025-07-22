@@ -12,6 +12,7 @@ use App\Http\Controllers\API\QuoteController;
 use App\Http\Controllers\API\CategoryController; 
 use App\Http\Controllers\API\ChartController;
 use App\Http\Controllers\API\DeviceController;
+use App\Http\Controllers\API\CalendarController;
 
 // ---> INI BAGIAN INVESTIGASI <---
 // Mencatat semua request yang masuk ke file api.php
@@ -45,4 +46,6 @@ Route::middleware('auth:sanctum')->group(function () {
      Route::get('/chart-data', [ChartController::class, 'getWeeklyExpenses']);
 
       Route::post('/devices/register', [DeviceController::class, 'register']);
+
+      Route::get('/calendar-data', [CalendarController::class, 'getMonthlySummary']);
 });

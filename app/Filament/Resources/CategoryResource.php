@@ -33,6 +33,12 @@ class CategoryResource extends Resource
                         'Savings' => 'Savings',
                     ])
                     ->label('Tipe Kategori'),
+                // --- INPUT IKON BARU ---
+                Forms\Components\TextInput::make('icon')
+                    ->nullable()
+                    ->maxLength(255)
+                    ->label('Nama Ikon Material')
+                    ->helperText('Contoh: fast_food, commute, movie. Lihat nama ikon di Google Fonts.'),
             ]);
     }
 
@@ -40,6 +46,10 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+                // --- KOLOM IKON BARU ---
+                Tables\Columns\TextColumn::make('icon')
+                    ->label('Ikon')
+                    ->fontFamily('Material Icons'), // Trik agar ikonnya tampil
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable()

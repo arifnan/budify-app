@@ -7,12 +7,14 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string|null $icon
      * @property mixed $type
      * @property string $name
      * @property int $id
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereType($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereIcon($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Category>|Category newModelQuery()

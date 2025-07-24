@@ -8,11 +8,11 @@ use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\SettingsController;
-use App\Http\Controllers\API\QuoteController;
-use App\Http\Controllers\API\CategoryController; 
-use App\Http\Controllers\API\ChartController;
-use App\Http\Controllers\API\DeviceController;
-use App\Http\Controllers\API\CalendarController;
+use App\Http\Controllers\Api\QuoteController;
+use App\Http\Controllers\Api\CategoryController; 
+use App\Http\Controllers\Api\ChartController;
+use App\Http\Controllers\Api\DeviceController;
+use App\Http\Controllers\Api\CalendarController;
 
 // ---> INI BAGIAN INVESTIGASI <---
 // Mencatat semua request yang masuk ke file api.php
@@ -43,7 +43,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/quotes/random', [QuoteController::class, 'getRandomQuote']);
     Route::get('/categories', [CategoryController::class, 'index']);
 
-     Route::get('/chart-data', [ChartController::class, 'getWeeklyExpenses']);
+    Route::get('/chart-data/line', [ChartController::class, 'getExpenseTrend']);
+    
+    // Endpoint untuk Diagram Pie, khusus untuk hari ini
+    Route::get('/chart-data/pie', [ChartController::class, 'getTodaysSpendingByCategory']);
 
       Route::post('/devices/register', [DeviceController::class, 'register']);
 
